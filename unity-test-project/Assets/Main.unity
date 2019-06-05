@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 654871989}
   - component: {fileID: 654871991}
   - component: {fileID: 654871990}
+  - component: {fileID: 654871992}
   m_Layer: 5
   m_Name: FalseAnswer
   m_TagString: Untagged
@@ -440,6 +441,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654871988}
   m_CullTransparentMesh: 0
+--- !u!95 &654871992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654871988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96bd3c4ba2336b74382d106e35e361e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &739038678
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +917,7 @@ MonoBehaviour:
   factText: {fileID: 806940435}
   trueAnswerText: {fileID: 127887545}
   falseAnswerText: {fileID: 654871990}
+  animator: {fileID: 1257152730}
   timeBetweenQuestions: 1
 --- !u!4 &969798719
 Transform:

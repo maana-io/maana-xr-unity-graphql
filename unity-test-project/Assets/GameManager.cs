@@ -4,13 +4,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GraphQL;
 
 public class GameManager : MonoBehaviour
 {
-    public Question[] questions;
     private static List<Question> unansweredQuestions;
-
     private Question currentQuestion;
+
+    [SerializeField]
+    private string graphQLEndpoint;
+    private GraphQLClient graphQLClient;
 
     [SerializeField]
     private Text factText;
@@ -27,13 +30,32 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float timeBetweenQuestions = 1f;
 
+    string QuestionsQuery = @"query { questions { fact isTrue } }";
+
     void Start()
     {
+        Debug.Log("Starting!");
         if (unansweredQuestions == null || unansweredQuestions.Count == 0)
         {
-            unansweredQuestions = questions.ToList<Question>();
+            if (graphQLClient == null)
+            {
+                graphQLClient = new GraphQLClient(graphQLEndpoint);
+            }
+            graphQLClient.Query(QuestionsQuery, callback: QuestionsCallback);
+            return;
+        }
+        SetCurrentQuestion();
+    }
+
+    void QuestionsCallback(GraphQLResponse response)
+    {
+        if (response.Exception != null)
+        {
+            factText.text = "Failed to get questions from GraphQL server: " + response.Exception;
+            return;
         }
 
+        unansweredQuestions = response.GetList<Question>("questions");
         SetCurrentQuestion();
     }
 

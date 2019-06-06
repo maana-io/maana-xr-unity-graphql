@@ -907,13 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1052c17b72caa54892cfa2a4ddda331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questions:
-  - fact: I discovered Foo
-    isTrue: 0
-  - fact: Bar likes Baz
-    isTrue: 1
-  - fact: Baz died
-    isTrue: 0
+  graphQLEndpoint: http://localhost:4000/graphql
   factText: {fileID: 806940435}
   trueAnswerText: {fileID: 127887545}
   falseAnswerText: {fileID: 654871990}

@@ -1,3 +1,0 @@
-[submodule "unity-test-project/Assets/Maana/GraphQL"]
-	path = unity-test-project/Assets/Maana/GraphQL
-	url = git@github.com:maana-io/maana-xr-unity-graphql-client.git
